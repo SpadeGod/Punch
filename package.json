@@ -1,0 +1,24 @@
+{
+  "name": "spider",
+  "version": "1.0.0",
+  "description": "spider",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "pub": "node ./src/sftp.js"
+  },
+  "dependencies": {
+    "cron": "^1.3.0",
+    "easy-ftp": "^0.3.37",
+    "nodemailer": "^4.1.1",
+    "request": "2.83.0",
+    "superagent": "^3.6.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git"
+  },
+  "author": "Captain",
+  "license": "ISC",
+  "bugs": {}
+}
