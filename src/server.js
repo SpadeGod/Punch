@@ -21,7 +21,7 @@ var Punch = (url, userConfig, type) => {
                         message.subject = 'punch error :('
                         // console.log(err.response)
                         message.text = `Error msg:${err.response.res.text}\r\n\r\nResponse: ${JSON.stringify(err.response)}`
-                    } else if (res.res['text'].includes('punch success')) {
+                    } else if (res.res['text'].includes('打卡成功')) {
                         let date = new Date()
                         let time = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
                         message.subject = `${type}success :) punch time: ${time}`
