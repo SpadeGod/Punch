@@ -24,7 +24,7 @@ var Punch = (url, userConfig, type) => {
                     } else if (res.res['text'].includes('打卡成功')) {
                         let date = new Date()
                         let time = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
-                        message.subject = `${type}success :) punch time: ${time}`
+                        message.subject = `${type} success :) punch time: ${time}`
                         message.text = res.res['text']
                         // console.log(res.res['text'])
                     } else {
@@ -73,10 +73,10 @@ var launch = () => {
         setTimeout(function () {
             if (date.getHours() < 12) {
                 // 12点之前打上班卡
-                Punch(config.InWorkUrl, item, '上班')
+                Punch(config.InWorkUrl, item, 'go on work')
             } else {
                 // 12点之后打下班卡
-                Punch(config.OutWorkUrl, item, '下班')
+                Punch(config.OutWorkUrl, item, 'off work')
             }
         }, (minutes * 60 + second) * 1000)
     })
