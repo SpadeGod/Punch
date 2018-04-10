@@ -1,7 +1,7 @@
 # -Punch  [![travis](https://travis-ci.org/SpadeGod/Punch.svg?branch=master)](https://travis-ci.org/SpadeGod/Punch)
  Punch for zsy
  
- if you found this, don't make public, just secretly use. :)
+ if you found this, don't make public, just secretly use :)
 
 
 
