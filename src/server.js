@@ -5,9 +5,7 @@ var sendMail = require('./mail')
 var config = require('./config')
 var checkHolidays = require('./holiday.js')
 
-/** 
- * @description 打卡
- */
+
 var Punch = (url, userConfig, type) => {
     request.post(config.loginUrl, userConfig, (err, res, body) => {
         if (!err) {
@@ -49,9 +47,9 @@ var Punch = (url, userConfig, type) => {
  * @returns 
  */
 function getRandomTime() {
-    // 延迟数在 1-30分钟内随机
-    let minutes = parseInt(Math.random() * 30, 10)
-    // 延迟秒数在 0-60秒内随机
+    // random minutes between 0 and 20
+    let minutes = parseInt(Math.random() * 20, 10)
+    // random second between 0 and 60
     let second = parseInt(Math.random() * 60, 10)
     return {
         minutes,
@@ -72,17 +70,17 @@ var launch = () => {
         // delay execute
         setTimeout(function () {
             if (date.getHours() < 12) {
-                // 12点之前打上班卡
+                // punching the go on work before 12:00 pm
                 Punch(config.InWorkUrl, item, 'go on work')
             } else {
-                // 12点之后打下班卡
+                // punching the off work after 12:00 pm
                 Punch(config.OutWorkUrl, item, 'off work')
             }
         }, (minutes * 60 + second) * 1000)
     })
 }
 
-new cronJob('0 30 8,18 * * 1-5', function () {
+new cronJob('0 30 8,18 * * *', function () {
     launch()
 }, null, true, 'Asia/Shanghai')
 
